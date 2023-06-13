@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21G531" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName="Address" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="address" inverseEntity="Person"/>
+    </entity>
+    <entity name="EmailAddress" representedClassName="EmailAddress" syncable="YES">
+        <attribute name="emailId" optional="YES" attributeType="String"/>
+        <relationship name="eaddress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="email" inverseEntity="Person"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="fname" optional="YES" attributeType="String"/>
+        <attribute name="lname" optional="YES" attributeType="String"/>
+        <attribute name="primaryKey" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="address" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="location" inverseEntity="Address"/>
+        <relationship name="email" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EmailAddress" inverseName="eaddress" inverseEntity="EmailAddress"/>
+        <relationship name="phNum" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneNumbers" inverseName="pnum" inverseEntity="PhoneNumbers"/>
+    </entity>
+    <entity name="PhoneNumbers" representedClassName="PhoneNumbers" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <relationship name="pnum" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="phNum" inverseEntity="Person"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="PhoneNumbers" positionX="-54" positionY="18" width="128" height="59"/>
+        <element name="EmailAddress" positionX="-36" positionY="27" width="128" height="59"/>
+        <element name="Address" positionX="-18" positionY="36" width="128" height="59"/>
+    </elements>
+</model>
